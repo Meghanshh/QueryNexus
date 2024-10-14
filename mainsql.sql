@@ -3,7 +3,7 @@ CREATE DATABASE hospital;
 USE hospital;
 CREATE TABLE patient (
 patientID VARCHAR(20) PRIMARY KEY,
-patient_name CHAR(20) NOT NULL,
+patient_name VARCHAR(20) NOT NULL,
 DOB DATE NOT NULL,
 gender CHAR(1) NOT NULL,
 address VARCHAR(50),
