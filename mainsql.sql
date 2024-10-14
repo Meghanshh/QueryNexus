@@ -2,12 +2,12 @@ DROP DATABASE hospital;
 CREATE DATABASE hospital;
 USE hospital;
 CREATE TABLE patient (
-patientID VARCHAR(50) PRIMARY KEY,
+patientID VARCHAR(20) PRIMARY KEY,
 patient_name CHAR(20) NOT NULL,
 DOB DATE NOT NULL,
-gender CHAR(20) NOT NULL,
+gender CHAR(1) NOT NULL,
 address VARCHAR(50),
-contactNo INTEGER NOT NULL,
+contactNo VARCHAR(15),
 email VARCHAR(20) UNIQUE ,
 insurance_details VARCHAR(250));
 
@@ -20,7 +20,7 @@ doctorID VARCHAR(20) PRIMARY KEY ,
 doctorName CHAR(20) NOT NULL,
 specialisation VARCHAR(50) NOT NULL ,
 dept_name VARCHAR(50) NOT NULL,
-FOREIGN KEY(dept_name) REFERENCES department(dept_name));
+FOREIGN KEY(dept_id) REFERENCES department(dept_id));
 
 CREATE TABLE Bedding (
     bed_id INT PRIMARY KEY,
@@ -51,13 +51,12 @@ price_per_unit DECIMAL(10.4) ,
 
 billID VARCHAR(250) ,
 total_amount DECIMAL(10.4) NOT NULL,
-
 recordID VARCHAR(250) NOT NULL,
+	
 diagonsis CHAR(50) ,
 treatment CHAR(250),
 prescription VARCHAR(250),
 record_date DATE NOT NULL,
-
 patientID VARCHAR(50),
 doctorID VARCHAR(20),
 FOREIGN KEY(patientID) REFERENCES patient(patientID),
