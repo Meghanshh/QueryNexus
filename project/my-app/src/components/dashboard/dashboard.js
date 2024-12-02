@@ -15,7 +15,11 @@ const Dashboard = () => {
         </div>
         <div className="option-card" onClick={() => navigate("/doctor")}>
           <h2>Doctor</h2>
-          <p>View and manage doctor details.</p>
+          <p>Manage doctor details and add new doctors.</p>
+        </div>
+        <div className="option-card" onClick={() => navigate("/department")}>
+          <h2>Departments</h2>
+          <p>Manage departments and add new ones.</p>
         </div>
         <div className="option-card" onClick={() => navigate("/consultation")}>
           <h2>Consultation</h2>
@@ -24,10 +28,6 @@ const Dashboard = () => {
         <div className="option-card" onClick={() => navigate("/bedding")}>
           <h2>Bedding</h2>
           <p>Manage bedding and room assignments.</p>
-        </div>
-        <div className="option-card" onClick={() => navigate("/department")}>
-          <h2>Departments</h2>
-          <p>View and organize departments.</p>
         </div>
       </div>
     </div>

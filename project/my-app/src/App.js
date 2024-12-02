@@ -1,30 +1,107 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Dashboard from "./dashboard";
-import PatientForm from "./patient";
-import DoctorForm from "./doctor";
-import ConsultationForm from "./consultation";
-import BeddingForm  from "./bedding";
-import DepartmentForm from "./department";
-// Add imports for other pages like Doctor, Consultation, etc.
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Dashboard from "./components/dashboard/dashboard";
 
-const App = () => {
+// Patient Components
+import PatientDashboard from "./components/Patient/PatientDashboard";
+import RegisterPatient from "./components/Patient/RegisterPatient";
+import GetPatient from "./components/Patient/GetPatient";
+import UpdatePatient from "./components/Patient/UpdatePatient";
+
+// Doctor Components
+import DoctorDashboard from "./components/Doctor/DoctorDashboard";
+import AddDoctor from "./components/Doctor/AddDoctor";
+import ListDoctors from "./components/Doctor/ListDoctors";
+
+// Department Components
+import DepartmentDashboard from "./components/Department/DepartmentDashboard";
+import AddDepartment from "./components/Department/AddDepartment";
+import ListDepartments from "./components/Department/ListDepartment";
+
+// Bedding Components
+import BeddingDashboard from "./components/Bedding/BeddingDashboard";
+import ListBedding from "./components/Bedding/ListBedding";
+import AddBedding from "./components/Bedding/AddBedding";
+
+// Consultation Components
+import ConsultationDashboard from "./components/Consultation/ConsultationDashboard";
+import ListConsultations from "./components/Consultation/ListConsultation";
+import AddConsultation from "./components/Consultation/AddConsultation";
+
+function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Dashboard />} /> {/* Home page */}
-        <Route path="/patient" element={<PatientForm />} /> {/* Patient page */}
-        <Route path="/doctor" element={<DoctorForm />}/>
-        <Route path="/consultation" element={<ConsultationForm />}/>
-        <Route path="/bedding" element={<BeddingForm />}/>
-        <Route path="/department" element={<DepartmentForm/>}/>
-        {/* Define routes for other options */}
+        {/* Dashboard Route */}
+        <Route path="/" element={<Dashboard />} />
+
+        {/* Patient Routes */}
+        <Route path="/patient" element={<PatientDashboard />} />
+        <Route path="/patient/register" element={<RegisterPatient />} />
+        <Route path="/patient/get" element={<GetPatient />} />
+        <Route path="/patient/update" element={<UpdatePatient />} />
+
+        {/* Doctor Routes */}
+        <Route path="/doctor" element={<DoctorDashboard />} />
+        <Route path="/doctor/add" element={<AddDoctor />} />
+        <Route path="/doctor/list" element={<ListDoctors />} />
+
+        {/* Department Routes */}
+        <Route path="/department" element={<DepartmentDashboard />} />
+        <Route path="/department/add" element={<AddDepartment />} />
+        <Route path="/department/list" element={<ListDepartments />} />
+
+        {/* Bedding Routes */}
+        <Route path="/bedding" element={<BeddingDashboard />} />
+        <Route path="/bedding/list" element={<ListBedding />} />
+        <Route path="/bedding/add" element={<AddBedding />} />
+
+        {/* Consultation Routes */}
+        <Route path="/consultation" element={<ConsultationDashboard />} />
+        <Route path="/consultation/list" element={<ListConsultations />} />
+        <Route path="/consultation/add" element={<AddConsultation />} />
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;
+
+
+// // import React from "react";
+// // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+// // import Dashboard from "./dashboard";
+// // import PatientForm from "./patient";
+// // import CreatePatient from ".CreatePatient";
+// // import UpdatePatient from ".UpdatePatient";
+// // import PatientDetails from ".PatientDetails";
+// import DoctorForm from "./doctor";
+// import ConsultationForm from "./consultation";
+// import BeddingForm  from "./bedding";
+// import DepartmentForm from "./department";
+// // Add imports for other pages like Doctor, Consultation, etc.
+
+// const App = () => {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Dashboard />} /> {/* Home page */}
+//         <Route path="/patient" element={<PatientForm />} /> {/* Patient page */}
+//         {/* <Route path="/patient/options" element={<PatientOptions />} />
+//         <Route path="/patient/create" element={<CreatePatient />} />
+//         <Route path="/patient/update" element={<UpdatePatient />} />
+//         <Route path="/patient/details" element={<PatientDetails />} />         */}
+//         <Route path="/doctor" element={<DoctorForm />}/>
+//         <Route path="/consultation" element={<ConsultationForm />}/>
+//         <Route path="/bedding" element={<BeddingForm />}/>
+//         <Route path="/department" element={<DepartmentForm/>}/>
+//         {/* Define routes for other options */}
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;
 
 
 // import "./dashboard.css";

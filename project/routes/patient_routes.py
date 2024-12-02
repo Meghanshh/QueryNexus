@@ -1,42 +1,19 @@
 from flask import Blueprint, request, jsonify
 from controllers.patient_controller import PatientController
-from flask_cors import CORS
 
 patient_bp = Blueprint('patient', __name__, url_prefix='/api/patients')
 
-@patient_bp.route('/', methods=['GET'])
-def get_all_patients():
-    try:
-        return PatientController.get_all_patients()
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+# Route to get all patients
+patient_bp.route('/', methods=['GET'])(PatientController.get_all_patients)
 
-@patient_bp.route('/<patientID>', methods=['GET'])
-def get_patient(patientID): 
-    try:
-        return PatientController.get_patient(patientID)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 404
+# Route to get a specific patient by patientID
+patient_bp.route('/<patientID>', methods=['GET'])(PatientController.get_patient)
 
-@patient_bp.route('/', methods=['POST'])
-def create_patient():
-    try:
-        data = request.get_json()
-        return PatientController.create_patient(data)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400
+# Route to create a new patient
+patient_bp.route('/', methods=['POST'])(PatientController.create_patient)
 
-@patient_bp.route('/<patientID>', methods=['PUT'])
-def update_patient(patientID):
-    try:
-        data = request.get_json()
-        return PatientController.update_patient(patientID, data)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400
+# Route to update patient details by patientID
+patient_bp.route('/<patientID>', methods=['PUT'])(PatientController.update_patient)
 
-@patient_bp.route('/<patientID>', methods=['DELETE'])
-def delete_patient(patientID):
-    try:
-        return PatientController.delete_patient(patientID)
-    except Exception as e:
-        return jsonify({"error": str(e)}), 400
+# Route to delete a patient by patientID
+patient_bp.route('/<patientID>', methods=['DELETE'])(PatientController.delete_patient)

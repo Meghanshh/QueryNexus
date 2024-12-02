@@ -15,7 +15,7 @@ class PatientService:
         patient = Patient(**data)
         db.session.add(patient)
         db.session.commit()
-        # return patient
+        return patient
     
     @staticmethod
     def update_patient(patientID, data):
